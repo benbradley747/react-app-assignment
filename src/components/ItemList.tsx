@@ -1,37 +1,23 @@
-import { ItemData } from './Container';
-import { Paper } from '@mui/material';
-import Item from './Item';
-import ClearIcon from '@mui/icons-material/Clear';
+import React from "react"
+import { Context, ItemData } from "./Main"
+import { Paper } from "@mui/material"
+import Item from "./Item"
 
-interface ItemListProps {
-    items: ItemData[],
-    deleteItem: (id: number) => void
+const ItemList = () => {
+  const { state }: any = React.useContext(Context)
+
+  return (
+    <Paper elevation={4}>
+      <div className="item-list-wrapper">
+        <h3 className="item-list-title">My items ({state.items.length})</h3>
+        <ul className="item-list">
+          {state.items.map((item: ItemData, key: number) => (
+            <Item item={item} key={key} />
+          ))}
+        </ul>
+      </div>
+    </Paper>
+  )
 }
 
-const ItemList: React.FC<ItemListProps> = ({ items, deleteItem }) => {
-    return (
-        <Paper elevation={4}>
-            <div className='item-list-wrapper'>
-                <h3 className="item-list-title">My items ({items.length})</h3>
-                <ul className="item-list">
-                    {items.map(item => (
-                        <li>
-                            <div className='itemWrapper'>
-                                <Paper elevation={4}>
-                                    <div className='item-card'>
-                                        <Item key={item.name} item={item} />
-                                        <span className='del-btn' onClick={() => deleteItem(item.id)}>
-                                            <ClearIcon />
-                                        </span>
-                                    </div>
-                                </Paper>
-                            </div>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        </Paper>
-    )
-}
-
-export default ItemList;
+export default ItemList
