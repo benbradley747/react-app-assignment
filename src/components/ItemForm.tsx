@@ -9,9 +9,12 @@ const ItemForm = () => {
 
   const handleSubmit = () => {
     event?.preventDefault()
-    console.log("new item: ", newItem)
-    dispatch({ type: "addItem", data: newItem })
-    setNewItem("")
+    
+    if (newItem.length != 0) {
+      console.log("new item: ", newItem)
+      dispatch({ type: "addItem", data: newItem })
+      setNewItem("")
+    }
   }
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -23,7 +26,6 @@ const ItemForm = () => {
       <div className="item-form-wrapper">
         <form className="item-form">
           <input
-            id="outlined-basic"
             type="text"
             value={newItem}
             onChange={handleChange}

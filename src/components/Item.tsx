@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { Paper } from "@mui/material"
+import { Paper, Typography } from "@mui/material"
 import { Context, ItemData } from "./Main"
 import ClearIcon from "@mui/icons-material/Clear"
 
@@ -15,7 +15,9 @@ const Item: React.FC<ItemProps> = ({ item }) => {
       <div className="itemWrapper">
         <Paper elevation={4}>
           <div className="item-card">
-            <div className="item">{item.name}</div>
+            <Typography variant="body1" className="item">
+              {item.name}
+            </Typography>
             <button
               className="del-btn"
               onClick={() => dispatch({ type: "deleteItem", id: item.id })}>

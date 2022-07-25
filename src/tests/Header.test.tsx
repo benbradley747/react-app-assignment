@@ -1,17 +1,15 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
 import "@testing-library/jest-dom"
-import Main from "../components/Main"
+import Header from "../components/Header"
 
-describe("components/Main", () => {
+describe("components/Header", () => {
   const renderComponent = () => {
-    render(<Main />)
+    render(<Header />)
   }
 
   it("should render the header, form, and list components", () => {
     renderComponent()
     expect(screen.getByText(/Manage my items/)).toBeInTheDocument()
-    expect(screen.getByRole("textbox")).toBeInTheDocument()
-    expect(screen.getByRole("list")).toBeInTheDocument()
   })
 })

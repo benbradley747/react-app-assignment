@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import { Context, ItemData } from "./Main"
-import { Paper } from "@mui/material"
+import { Paper, Typography } from "@mui/material"
 import Item from "./Item"
 
 const ItemList = () => {
@@ -9,7 +9,9 @@ const ItemList = () => {
   return (
     <Paper elevation={4}>
       <div className="item-list-wrapper">
-        <h3 className="item-list-title">My items ({state.items.length})</h3>
+        <Typography variant="h6">
+          My items ({state.items.length})
+        </Typography>
         <ul className="item-list">
           {state.items.map((item: ItemData, key: number) => (
             <Item item={item} key={key} />

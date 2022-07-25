@@ -1,5 +1,6 @@
 import React, { createContext, Dispatch } from "react"
 import { useReducer } from "react"
+import Header from "./Header"
 import ItemForm from "./ItemForm"
 import ItemList from "./ItemList"
 
@@ -20,7 +21,7 @@ export interface ContextProps {
 
 export const Context = createContext({} as ContextProps)
 
-function Main() {
+const Main = () => {
   const initialState = {
     count: 0,
     items: [],
@@ -57,7 +58,7 @@ function Main() {
         dispatch,
       }}>
       <div className="Container">
-        <h1>Manage my items</h1>
+        <Header />
         <ItemForm />
         <ItemList />
       </div>
