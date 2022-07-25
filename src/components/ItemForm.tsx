@@ -28,7 +28,7 @@ const ItemForm = () => {
             value={newItem}
             onChange={handleChange}
           />
-          <input type="submit" onClick={() => handleSubmit()} />
+          <input type="submit" onClick={() => handleSubmit()} value="Add Item" />
         </form>
       </div>
     </Paper>
