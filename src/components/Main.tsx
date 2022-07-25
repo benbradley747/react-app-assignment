@@ -1,4 +1,4 @@
-import React, { Dispatch } from "react"
+import React, { createContext, Dispatch } from "react"
 import { useReducer } from "react"
 import ItemForm from "./ItemForm"
 import ItemList from "./ItemList"
@@ -14,11 +14,11 @@ export interface ContextProps {
     items: ItemData[]
   }
   dispatch: Dispatch<
-    { type: "addItem"; data: string } | { type: "deleteItem"; data: number }
+    { type: "addItem", data: string } | { type: "deleteItem", data: number }
   >
 }
 
-export const Context = React.createContext({} as ContextProps)
+export const Context = createContext({} as ContextProps)
 
 function Main() {
   const initialState = {

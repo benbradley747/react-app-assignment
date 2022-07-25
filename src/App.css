@@ -51,6 +51,7 @@
 }
 
 .del-btn {
+  all: unset;
   padding: 10px;
   color: black;
   cursor: pointer;

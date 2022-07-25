@@ -1,10 +1,10 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Context, ItemData } from "./Main"
 import { Paper } from "@mui/material"
 import Item from "./Item"
 
 const ItemList = () => {
-  const { state }: any = React.useContext(Context)
+  const { state }: any = useContext(Context)
 
   return (
     <Paper elevation={4}>

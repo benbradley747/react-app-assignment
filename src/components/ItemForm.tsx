@@ -1,10 +1,10 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Paper } from "@mui/material"
 import { ChangeEvent, useState } from "react"
 import { Context } from "./Main"
 
 const ItemForm = () => {
-  const { dispatch } = React.useContext(Context)
+  const { dispatch } = useContext(Context)
   const [newItem, setNewItem] = useState<string>("")
 
   const handleSubmit = () => {
