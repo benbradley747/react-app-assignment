@@ -20,7 +20,7 @@ export interface ContextProps {
 
 export const Context = React.createContext({} as ContextProps)
 
-function Container() {
+function Main() {
   const initialState = {
     count: 0,
     items: [],
@@ -65,4 +65,4 @@ function Container() {
   )
 }
 
-export default Container
+export default Main
