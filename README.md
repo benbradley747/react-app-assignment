@@ -7,4 +7,3 @@ To run the project:
 - Run using `yarn dev`
 
 TODO:
- - Unit testing
