@@ -1,7 +1,7 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
 import "@testing-library/jest-dom"
-import userEvent from '@testing-library/user-event'
+import userEvent from "@testing-library/user-event"
 import ItemForm from "../components/ItemForm"
 
 describe("components/ItemForm", () => {
@@ -13,7 +13,7 @@ describe("components/ItemForm", () => {
     renderComponent()
 
     const inputComponent = screen.getByRole("textbox")
-    const buttonComponent = screen.getByRole("button", {name: "Add Item"})
+    const buttonComponent = screen.getByRole("button", { name: "Add Item" })
 
     expect(buttonComponent).toBeInTheDocument()
     expect(inputComponent).toBeInTheDocument()

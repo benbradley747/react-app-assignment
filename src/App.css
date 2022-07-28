@@ -25,7 +25,7 @@
 .item-list-wrapper {
   padding: 10px;
   background-color: #ddc9a2;
-  transition: all  0.4s linear;
+  transition: all 0.4s linear;
 }
 
 .item-list-title {
@@ -55,7 +55,7 @@
   padding: 10px;
   color: black;
   cursor: pointer;
-  transition: all .25s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .del-btn:hover {

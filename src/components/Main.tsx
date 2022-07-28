@@ -14,41 +14,47 @@ export interface ContextProps {
     count: number
     items: ItemData[]
   }
-  dispatch: Dispatch<
-    { type: "addItem", data: string } | { type: "deleteItem", data: number }
-  >
+  dispatch: Dispatch<ActionType>
 }
+
+export type ComponentState = {
+  count: number
+  items: ItemData[]
+}
+
+const initialState: ComponentState = {
+  count: 0,
+  items: [] as ItemData[],
+}
+
+export type ActionType =
+  | { type: "addItem"; data: ItemData }
+  | { type: "deleteItem"; data: ItemData }
+  | { type: "count" }
 
 export const Context = createContext({} as ContextProps)
 
+const reducer = (state: ComponentState, action: ActionType): ComponentState => {
+  switch (action.type) {
+    case "addItem":
+      return {
+        ...state,
+        items: [...state.items, { id: state.count, name: action.data.name }],
+        count: state.count + 1,
+      }
+    case "deleteItem":
+      return {
+        ...state,
+        items: [
+          ...state.items.filter((x: { id: number }) => x.id !== action.data.id),
+        ],
+      }
+    default:
+      throw new Error()
+  }
+}
+
 const Main = () => {
-  const initialState = {
-    count: 0,
-    items: [],
-  }
-
-  function reducer(state: any, action: any) {
-    switch (action.type) {
-      case "addItem":
-        return {
-          ...state,
-          items: [...state.items, { id: state.count, name: action.data }],
-          count: state.count + 1,
-        }
-      case "deleteItem":
-        return {
-          ...state,
-          items: [
-            ...state.items.filter((x: { id: number }) => x.id !== action.id),
-          ],
-        }
-      case "count":
-        return state.count
-      default:
-        throw new Error()
-    }
-  }
-
   const [state, dispatch] = useReducer(reducer, initialState)
 
   return (

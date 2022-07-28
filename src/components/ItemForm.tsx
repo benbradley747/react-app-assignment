@@ -4,15 +4,14 @@ import { ChangeEvent, useState } from "react"
 import { Context } from "./Main"
 
 const ItemForm = () => {
-  const { dispatch } = useContext(Context)
+  const { state, dispatch } = useContext(Context)
   const [newItem, setNewItem] = useState<string>("")
 
   const handleSubmit = () => {
     event?.preventDefault()
-    
+
     if (newItem.length != 0) {
-      console.log("new item: ", newItem)
-      dispatch({ type: "addItem", data: newItem })
+      dispatch({ type: "addItem", data: { id: state.count, name: newItem } })
       setNewItem("")
     }
   }
@@ -25,12 +24,12 @@ const ItemForm = () => {
     <Paper elevation={4}>
       <div className="item-form-wrapper">
         <form className="item-form">
+          <input type="text" value={newItem} onChange={handleChange} />
           <input
-            type="text"
-            value={newItem}
-            onChange={handleChange}
+            type="submit"
+            onClick={() => handleSubmit()}
+            value="Add Item"
           />
-          <input type="submit" onClick={() => handleSubmit()} value="Add Item" />
         </form>
       </div>
     </Paper>

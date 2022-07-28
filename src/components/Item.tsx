@@ -1,5 +1,5 @@
-import React, { useContext } from "react"
-import { Paper, Typography } from "@mui/material"
+import React, { ComponentState, useContext } from "react"
+import { Paper } from "@mui/material"
 import { Context, ItemData } from "./Main"
 import ClearIcon from "@mui/icons-material/Clear"
 
@@ -8,21 +8,24 @@ export interface ItemProps {
 }
 
 const Item: React.FC<ItemProps> = ({ item }) => {
-  const { dispatch }: any = useContext(Context)
+  const { dispatch }: ComponentState = useContext(Context)
 
   return (
     <li>
       <div className="itemWrapper">
         <Paper elevation={4}>
           <div className="item-card">
-            <Typography variant="body1" className="item">
-              {item.name}
-            </Typography>
-            <button
+            <div className="name-tag">{item.name}</div>
+            <span
               className="del-btn"
-              onClick={() => dispatch({ type: "deleteItem", id: item.id })}>
+              onClick={() =>
+                dispatch({
+                  type: "deleteItem",
+                  data: { id: item.id, name: item.name },
+                })
+              }>
               <ClearIcon />
-            </button>
+            </span>
           </div>
         </Paper>
       </div>

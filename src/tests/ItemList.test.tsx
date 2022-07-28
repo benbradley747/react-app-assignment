@@ -12,8 +12,8 @@ describe("components/ItemList", () => {
     },
     {
       id: 1,
-      name: "Second item"
-    }
+      name: "Second item",
+    },
   ]
 
   const renderComponent = () => {
@@ -24,20 +24,21 @@ describe("components/ItemList", () => {
         value={{
           state: {
             count: mockItems.length,
-            items: mockItems
+            items: mockItems,
           },
-          dispatch: dispatch
-        }}
-      >
+          dispatch: dispatch,
+        }}>
         <ItemList />
-      </Context.Provider>
+      </Context.Provider>,
     )
   }
 
   it("should render all items and count them properly", () => {
     renderComponent()
 
-    expect(screen.getByText(`My items (${mockItems.length})`)).toBeInTheDocument()
+    expect(
+      screen.getByText(`My items (${mockItems.length})`),
+    ).toBeInTheDocument()
     expect(screen.getByText(mockItems[0].name)).toBeInTheDocument()
     expect(screen.getByText(mockItems[1].name)).toBeInTheDocument()
   })
