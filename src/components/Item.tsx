@@ -1,14 +1,15 @@
-import React, { ComponentState, useContext } from "react"
+import React, { useContext } from "react"
 import { Paper } from "@mui/material"
-import { Context, ItemData } from "./Main"
 import ClearIcon from "@mui/icons-material/Clear"
+import { ContextProps, useAppContext } from "./AppWrapper"
+import { ItemData } from "../utils/Types"
 
 export interface ItemProps {
   item: ItemData
 }
 
 const Item: React.FC<ItemProps> = ({ item }) => {
-  const { dispatch }: ComponentState = useContext(Context)
+  const { dispatch }: ContextProps = useAppContext()
 
   return (
     <li>

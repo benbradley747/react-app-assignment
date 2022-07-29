@@ -1,10 +1,10 @@
 import React, { useContext } from "react"
 import { Paper } from "@mui/material"
 import { ChangeEvent, useState } from "react"
-import { Context } from "./Main"
+import { useAppContext } from "./AppWrapper"
 
 const ItemForm = () => {
-  const { state, dispatch } = useContext(Context)
+  const { state, dispatch } = useAppContext()
   const [newItem, setNewItem] = useState<string>("")
 
   const handleSubmit = () => {

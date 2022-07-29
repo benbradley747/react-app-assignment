@@ -1,10 +1,11 @@
-import React, { ComponentState, useContext } from "react"
-import { Context, ItemData } from "./Main"
+import React, { useContext } from "react"
 import { Paper, Typography } from "@mui/material"
 import Item from "./Item"
+import { ItemData } from "../utils/Types"
+import { ContextProps, useAppContext } from "./AppWrapper"
 
 const ItemList = () => {
-  const { state }: ComponentState = useContext(Context)
+  const { state }: ContextProps = useAppContext()
   return (
     <Paper elevation={4}>
       <div className="item-list-wrapper">
