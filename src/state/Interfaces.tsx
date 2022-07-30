@@ -1,14 +1,14 @@
-import React, { Dispatch } from "react"
-import { ActionType } from "../components/AppWrapper"
-
-interface State {
-  count: number
-  items: ItemData[]
-}
+import { Dispatch } from 'react'
+import { ActionType } from '../components/AppWrapper'
 
 interface ItemData {
   id: number
   name: string
+}
+
+interface State {
+  count: number
+  items: ItemData[]
 }
 
 interface ContextProps {

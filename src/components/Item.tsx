@@ -1,8 +1,8 @@
-import React, { useContext } from "react"
-import { Paper, Typography } from "@mui/material"
-import ClearIcon from "@mui/icons-material/Clear"
-import { useAppContext } from "./AppWrapper"
-import { ItemData, ContextProps } from "../state/Interfaces"
+import React from 'react'
+import { Paper, Typography } from '@mui/material'
+import ClearIcon from '@mui/icons-material/Clear'
+import { useAppContext } from './AppWrapper'
+import { ItemData, ContextProps } from '../state/Interfaces'
 
 export interface ItemProps {
   item: ItemData
@@ -23,7 +23,7 @@ const Item: React.FC<ItemProps> = ({ item }) => {
               className="del-btn"
               onClick={() =>
                 dispatch({
-                  type: "deleteItem",
+                  type: 'deleteItem',
                   data: { id: item.id, name: item.name },
                 })
               }>

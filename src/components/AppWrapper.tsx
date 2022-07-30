@@ -1,10 +1,9 @@
-import React, { createContext, useContext, useReducer } from "react"
-import { ContextProps } from "../state/Interfaces"
-import { ItemData, State } from "../state/Interfaces"
+import React, { createContext, useContext, useReducer } from 'react'
+import { ContextProps, ItemData, State } from '../state/Interfaces'
 
 export type ActionType =
-  | { type: "addItem"; data: ItemData }
-  | { type: "deleteItem"; data: ItemData }
+  | { type: 'addItem'; data: ItemData }
+  | { type: 'deleteItem'; data: ItemData }
 
 const initialState: State = {
   count: 0,
@@ -16,20 +15,20 @@ const AppContext = createContext({} as ContextProps)
 const useAppContext = () => {
   const context = useContext(AppContext)
   if (!context) {
-    throw new Error("useAppContext must be used within a AppProvider")
+    throw new Error('useAppContext must be used within a AppProvider')
   }
   return context
 }
 
 export const reducer = (state: State, action: ActionType): State => {
   switch (action.type) {
-    case "addItem":
+    case 'addItem':
       return {
         ...state,
         items: [...state.items, { id: state.count, name: action.data.name }],
         count: state.count + 1,
       }
-    case "deleteItem":
+    case 'deleteItem':
       return {
         ...state,
         items: [
