@@ -1,8 +1,8 @@
-import React, { useContext } from "react"
+import React from "react"
 import { Paper, Typography } from "@mui/material"
 import Item from "./Item"
-import { ItemData } from "../utils/Types"
-import { ContextProps, useAppContext } from "./AppWrapper"
+import { useAppContext } from "./AppWrapper"
+import { ItemData, ContextProps } from "../state/Interfaces"
 
 const ItemList = () => {
   const { state }: ContextProps = useAppContext()

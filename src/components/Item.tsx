@@ -1,8 +1,8 @@
 import React, { useContext } from "react"
-import { Paper } from "@mui/material"
+import { Paper, Typography } from "@mui/material"
 import ClearIcon from "@mui/icons-material/Clear"
-import { ContextProps, useAppContext } from "./AppWrapper"
-import { ItemData } from "../utils/Types"
+import { useAppContext } from "./AppWrapper"
+import { ItemData, ContextProps } from "../state/Interfaces"
 
 export interface ItemProps {
   item: ItemData
@@ -16,7 +16,9 @@ const Item: React.FC<ItemProps> = ({ item }) => {
       <div className="itemWrapper">
         <Paper elevation={4}>
           <div className="item-card">
-            <div className="name-tag">{item.name}</div>
+            <Typography className="name-tag" variant="body1">
+              {item.name}
+            </Typography>
             <span
               className="del-btn"
               onClick={() =>

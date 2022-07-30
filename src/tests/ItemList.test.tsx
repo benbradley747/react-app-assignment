@@ -1,8 +1,9 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
 import "@testing-library/jest-dom"
-import { Context, ItemData } from "../components/Main"
 import ItemList from "../components/ItemList"
+import { AppContext } from "../components/AppWrapper"
+import { ItemData } from "../state/Interfaces"
 
 describe("components/ItemList", () => {
   const mockItems: ItemData[] = [
@@ -20,7 +21,7 @@ describe("components/ItemList", () => {
     const dispatch = jest.fn()
 
     render(
-      <Context.Provider
+      <AppContext.Provider
         value={{
           state: {
             count: mockItems.length,
@@ -29,7 +30,7 @@ describe("components/ItemList", () => {
           dispatch: dispatch,
         }}>
         <ItemList />
-      </Context.Provider>,
+      </AppContext.Provider>,
     )
   }
 

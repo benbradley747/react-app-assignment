@@ -1,7 +1,7 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
 import "@testing-library/jest-dom"
-import { ItemData } from "../components/Main"
+import { ItemData } from "../state/Interfaces"
 import Item from "../components/Item"
 
 describe("components/Item", () => {

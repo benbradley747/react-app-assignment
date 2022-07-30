@@ -12,8 +12,8 @@
   margin-bottom: 15px;
 }
 
-.item-form {
-  padding: 10px;
+.submit-button {
+  margin: 10px;
 }
 
 .item-list {
@@ -32,7 +32,7 @@
   margin-top: 0px;
 }
 
-.item {
+.name-tag {
   padding: 10px;
 }
 

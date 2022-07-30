@@ -1,14 +1,14 @@
-import React, { createContext, Dispatch, useContext, useReducer } from "react"
-import { ActionType, ItemData, MainComponentState } from "../utils/Types"
+import React, { createContext, useContext, useReducer } from "react"
+import { ContextProps } from "../state/Interfaces"
+import { ItemData, State } from "../state/Interfaces"
 
-const initialState: MainComponentState = {
+export type ActionType =
+  | { type: "addItem"; data: ItemData }
+  | { type: "deleteItem"; data: ItemData }
+
+const initialState: State = {
   count: 0,
   items: [] as ItemData[],
-}
-
-export interface ContextProps {
-  state: MainComponentState
-  dispatch: Dispatch<ActionType>
 }
 
 const AppContext = createContext({} as ContextProps)
@@ -21,10 +21,7 @@ const useAppContext = () => {
   return context
 }
 
-export const reducer = (
-  state: MainComponentState,
-  action: ActionType,
-): MainComponentState => {
+export const reducer = (state: State, action: ActionType): State => {
   switch (action.type) {
     case "addItem":
       return {
@@ -58,4 +55,4 @@ const AppWrapper = ({ children }: { children: React.ReactNode }) => {
   )
 }
 
-export { AppWrapper, useAppContext }
+export { AppWrapper, AppContext, useAppContext }

@@ -1,11 +1,16 @@
 import "./App.css"
-import Main from "./components/Main"
+import { AppWrapper } from "./components/AppWrapper"
+import Header from "./components/Header"
+import ItemForm from "./components/ItemForm"
+import ItemList from "./components/ItemList"
 
 function App() {
   return (
-    <div className="App">
-      <Main />
-    </div>
+    <AppWrapper>
+      <Header />
+      <ItemForm />
+      <ItemList />
+    </AppWrapper>
   )
 }
 
